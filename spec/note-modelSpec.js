@@ -1,8 +1,9 @@
 describe('Note', function() {
-
-  describe('create', function() {
+  var note = new Note()
+  describe('#create', function() {
     it('creates a new Note object', function() {
-      expect(Note.create).toBeInstanceOf(Note)
+      note.create("some text inside the note")
+      expect(note.text).toEq("some text inside the note")
     })
   })
 })

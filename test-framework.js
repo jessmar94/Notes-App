@@ -1,23 +1,24 @@
-var describeBlocks = [];
-let itBlocks;
-
 function describe(description, func) {
-
-  itBlocks = [];
-
-  func();
-
-  describeBlocks.push({
-    "description": description,
-    "function": func,
-    "examples": itBlocks
-  });
-
+  func()
 }
 
 function it(description, func) {
-  itBlocks.push({
-    "description": description,
-    "function": func
-  });
+  func()
+}
+
+function expect(arg) {
+  return new Expect(arg)
+}
+
+function Expect(arg) {
+  this.arg = arg
+  return this.arg
+}
+
+Expect.prototype.toEq = function(arg) {
+  if (this.arg === arg) {
+    console.log("test passed")
+  } else {
+    console.log("test failed")
+  }
 }
