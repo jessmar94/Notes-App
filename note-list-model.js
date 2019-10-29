@@ -9,10 +9,13 @@
   }
 
   NoteList.prototype.returnList = function() {
-    // this.notes.forEach(function(note){
-    //   console.log(note)
     return this.notes
   }
+
+  NoteList.prototype.newNote = function(text) {
+    let newNote = new Note(text);
+    this.notes.push(newNote)
+  };
 
   exports.NoteList = NoteList;
 })(this)
