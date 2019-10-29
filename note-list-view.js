@@ -1,11 +1,17 @@
 (function(exports) {
 
   function ViewNoteList(noteList) {
+    this.viewNotes = noteList
+  }
+
+  ViewNoteList.prototype.outputHtml = function() {
     notesHTML = "<ul>"
-    noteList.notes.forEach(function(note) {
-      notesHTML += ("<li>" + note.text + "</li>")
+    this.viewNotes.returnList().forEach(function(note) {
+      notesHTML += ("<li><div>" + note + "</div></li>")
     })
+
     return notesHTML += "</ul>"
+
   }
 
   exports.ViewNoteList = ViewNoteList

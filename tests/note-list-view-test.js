@@ -3,26 +3,33 @@
   function testViewMultipleNotes() {
 
     var noteList = new NoteList()
-    noteList.newNote("Note")
-    noteList.newNote("Note 2")
+    noteList.addNote("Note")
+    noteList.addNote("Note 2")
 
-    assert.isTrue(ViewNoteList(noteList)) === "<ul><li>Note</li><li>Note 2</li></ul>"
+    var viewNoteList = new ViewNoteList(noteList)
+    assert.isTrue(viewNoteList.outputHtml()) === "<ul><li><div>Note</div></li><li><div>Note 2</div></li></ul>"
   }
 
   function testViewOneNote() {
-    var noteList = new NoteList()
-    noteList.newNote("Note")
 
-    assert.isTrue(ViewNoteList(noteList)) == "<ul><li>Note</li></ul>"
+    var noteList = new NoteList()
+    noteList.addNote("Note")
+
+    var viewNoteList = new ViewNoteList(noteList)
+    assert.isTrue(viewNoteList.outputHtml()) === "<ul><li><div>Note</div></li><li></ul>"
   }
 
   function testViewNoNotes() {
-    var noteList = new NoteList()
 
-    assert.isTrue(ViewNoteList(noteList)) == "<ul><li></li></ul>"
+    var noteList = new NoteList()
+    noteList.addNote("Note")
+    noteList.addNote("Note 2")
+
+    var viewNoteList = new ViewNoteList(noteList)
+    assert.isTrue(viewNoteList.outputHtml()) === "<ul><li><div></div></li></ul>"
   }
 
-  testViewMultipleNotes()
-  testViewOneNote()
-  testViewNoNotes()
+  testViewMultipleNotes();
+  testViewOneNote();
+  testViewNoNotes();
 })(this)
