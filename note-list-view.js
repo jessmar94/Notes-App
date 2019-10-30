@@ -7,9 +7,8 @@
   ViewNoteList.prototype.outputHtml = function() {
     notesHTML = "<ul>"
     this.viewNotes.returnList().forEach(function(note) {
-      notesHTML += ("<li><div>" + note.text + "</div></li>")
+      notesHTML += ("<li><div>" + note.text.substr(0, 19) + '...' + "</div></li>")
     })
-
     return notesHTML += "</ul>"
 
   }

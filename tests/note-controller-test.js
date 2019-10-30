@@ -20,7 +20,7 @@
     noteController.viewHTML(documentDouble)
 
     assert.isTrue(documentDouble.getElementById('app').innerHTML ===
-      "<ul><li><div>Favourite food: pesto</div></li></ul>" )
+      "<ul><li><div>Favourite food: pes...</div></li></ul>" )
   }
 
   testNoteController();
