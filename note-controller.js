@@ -1,6 +1,7 @@
 (function(exports) {
 
   function NoteController(noteList = new NoteList()) {
+    this.noteList = noteList;
     this.viewNoteList = new ViewNoteList(noteList);
   }
 
@@ -12,7 +13,7 @@
   exports.NoteController = NoteController;
 })(this);
 
-// this.noteList = noteList;
-// noteList.newNote();
-// noteController = new NoteController();
+// var noteList = new NoteList()
+// noteList.newNote("Favourite drink: gin and tonic");
+// noteController = new NoteController(noteList);
 // noteController.viewHTML();
