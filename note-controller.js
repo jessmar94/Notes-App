@@ -1,8 +1,42 @@
 (function(exports) {
 
-  function NoteController(noteList = new NoteList()) {
-    // this.noteList = noteList;
-    this.viewNoteList = new ViewNoteList(noteList);
+  function NoteController(viewNoteList) {
+    this.viewNoteList = viewNoteList;
+    this.viewHTML();
+
+    makeUrlChangeShowNoteForCurrentPage();
+
+    addNote();
+
+    function makeUrlChangeShowNoteForCurrentPage() {
+      window.addEventListener("hashchange", showNoteCurrentPage);
+    };
+
+    function showNoteCurrentPage() {
+      showNote(getNoteFromUrl(window.location));
+    };
+
+    function getNoteFromUrl(link) {
+      return link.hash.split("#notes/")[1];
+    };
+
+    function showNote(id) {
+      console.log(this.viewNoteList)
+      document
+        .getElementById('app')
+        .innerHTML = this.viewNoteList.getNoteByID(id).text;
+      // return element.innerHTML = this.viewNoteList.viewNotes.notes[id].text;
+    };
+
+    function addNote() {
+      document
+        .getElementById("text")
+        .addEventListener("submit", function(submit) {
+          submit.preventDefault();
+          showNote();
+        })
+    }
+
   }
 
   NoteController.prototype.viewHTML = function( doc = document ) {
@@ -12,8 +46,3 @@
 
   exports.NoteController = NoteController;
 })(this);
-
-// var noteList = new NoteList()
-// noteList.newNote("Favourite drink: gin and tonic");
-// noteController = new NoteController(noteList);
-// console.log(noteController.viewHTML());

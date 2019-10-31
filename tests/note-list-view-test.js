@@ -12,7 +12,6 @@
     assert.isTrue(viewNoteList.outputHtml()) === "<ul><li><div><a href=#notes/0>Note</a></div></li><li><div><a href=#notes/1>Note 2</a></div></li></ul>"
   }
 
-
   function testViewOneNote() {
 
     ID.reset();

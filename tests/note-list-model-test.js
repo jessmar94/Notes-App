@@ -10,6 +10,7 @@
     noteList.addNote(note2)
 
     assert.isTrue(noteList.notes[0] === note )
+
   }
   testReturnNoteList();
 })(this);

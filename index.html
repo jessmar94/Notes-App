@@ -9,10 +9,17 @@
     <h1>Notes</h1>
     <div id="app"> Hello  </div>
 
+      <form id="text" action="#notes/new" method="post">
+          <label>New Note:</label><br>
+          <textarea name="name" rows="8" cols="40"></textarea><br>
+          <input type="submit" id="submit" value="Submit">
+      </form>
+
+    <script src="note-model.js"></script>
     <script src="note-list-model.js"></script>
     <script src="note-list-view.js"></script>
-    <script src="note-model.js"></script>
     <script src="note-controller.js"></script>
     <script src="id-generator.js"></script>
+
   </body>
 </html>
