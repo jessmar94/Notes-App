@@ -1,6 +1,7 @@
 (function(exports) {
 
   function NoteController(viewNoteList) {
+    var viewNoteList = viewNoteList
     this.viewNoteList = viewNoteList;
     this.viewHTML();
 
@@ -21,10 +22,10 @@
     };
 
     function showNote(id) {
-      console.log(this.viewNoteList)
+      console.log(this)
       document
         .getElementById('app')
-        .innerHTML = this.viewNoteList.getNoteByID(id).text;
+        .innerHTML = viewNoteList.getNoteByID(id).text;
       // return element.innerHTML = this.viewNoteList.viewNotes.notes[id].text;
     };
 
@@ -33,7 +34,8 @@
         .getElementById("text")
         .addEventListener("submit", function(submit) {
           submit.preventDefault();
-          showNote();
+          console.log(submit)
+
         })
     }
 
