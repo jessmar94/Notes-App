@@ -2,6 +2,7 @@
 
   function Note(text) {
     this.text = text
+    this.id = ID.generate();
   }
 
   Note.prototype.returnText = function() {

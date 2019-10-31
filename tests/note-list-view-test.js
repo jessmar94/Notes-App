@@ -36,6 +36,15 @@
     assert.isTrue(viewNoteList.outputHtml()) === "<ul><li><div>Favourite food: pes...</div></li></ul>"
   }
 
+  function testNoteURL() {
+    ID.reset();
+    var noteList = new NoteList()
+    noteList.newNote("Favourite food: pesto")
+
+    var viewNoteList = new ViewNoteList(noteList)
+    assert.isTrue(viewNoteList.outputHtml()) === "<ul><li><div><a href=#notes/0>Favourite food: pes...</a></div></li></ul>"
+  }
+
   testViewMultipleNotes();
   testViewOneNote();
   testViewNoNotes();
