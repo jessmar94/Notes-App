@@ -14,12 +14,10 @@
 
     var list = new NoteList();
     list.newNote("Favourite food: pesto");
-
+    
     var noteController = new NoteController(list)
 
-    noteController.viewHTML(documentDouble)
-
-    assert.isTrue(documentDouble.getElementById('app').innerHTML ===
+    assert.isTrue(noteController.viewHTML(documentDouble) ===
       "<ul><li><div>Favourite food: pes...</div></li></ul>" )
   }
 
